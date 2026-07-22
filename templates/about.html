@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About | SpamGuard AI</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/about.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" />
+
+        <h2>SpamGuard AI</h2>
+      </div>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/analyze">Analyze</a></li>
+
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h1>About SpamGuard AI</h1>
+
+      <p>
+        SpamGuard AI is an intelligent Email Spam Detection System developed
+        using Machine Learning and Natural Language Processing (NLP). It
+        classifies emails into
+
+        <strong>Spam</strong>
+
+        or
+
+        <strong>Safe</strong>
+
+        with high accuracy.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <img src="{{ url_for('static', filename='icons/ai.png') }}" />
+
+        <h2>Machine Learning</h2>
+
+        <p>
+          Trained using the Multinomial Naive Bayes algorithm on thousands of
+          real emails for accurate spam classification.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='icons/mail.png') }}" />
+
+        <h2>NLP Processing</h2>
+
+        <p>
+          Email text is cleaned using tokenization, stemming, stop-word removal
+          and vectorization before prediction.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='icons/security.png') }}" />
+
+        <h2>Email Security</h2>
+
+        <p>
+          Detects phishing attempts, suspicious content, fraudulent messages and
+          protects users from spam attacks.
+        </p>
+      </div>
+    </section>
+
+    <section class="tech">
+      <h1>Technology Stack</h1>
+
+      <div class="tech-grid">
+        <div>Python</div>
+
+        <div>Flask</div>
+
+        <div>Machine Learning</div>
+
+        <div>Scikit-Learn</div>
+
+        <div>NLTK</div>
+
+        <div>Pandas</div>
+
+        <div>HTML5</div>
+
+        <div>CSS3</div>
+
+        <div>JavaScript</div>
+      </div>
+    </section>
+
+    <section class="workflow">
+      <h1>How It Works</h1>
+
+      <div class="steps">
+        <div class="step">
+          <h2>1</h2>
+
+          <p>User enters an email.</p>
+        </div>
+
+        <div class="step">
+          <h2>2</h2>
+
+          <p>Text preprocessing using NLP.</p>
+        </div>
+
+        <div class="step">
+          <h2>3</h2>
+
+          <p>Vectorization using CountVectorizer.</p>
+        </div>
+
+        <div class="step">
+          <h2>4</h2>
+
+          <p>Prediction using ML Model.</p>
+        </div>
+
+        <div class="step">
+          <h2>5</h2>
+
+          <p>Detailed spam probability report.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Developed by Soumya Hallur © 2026</p>
+    </footer>
+  </body>
+</html>

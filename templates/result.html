@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Result Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/result.css') }}"
+    />
+
+    <script
+      defer
+      src="{{ url_for('static', filename='js/result.js') }}"
+    ></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>🤖 AI Email Analysis Dashboard</h1>
+
+      <!-- Top Section -->
+      <div class="top-grid">
+        <div class="prediction-card {{ prediction_class }}">
+          {% if prediction == "Spam" %}
+          <div class="icon">🚨</div>
+          {% else %}
+          <div class="icon">🛡️</div>
+          {% endif %}
+
+          <h2>{{ prediction }}</h2>
+          <p>Prediction Result</p>
+        </div>
+
+        <div class="gauge-card">
+          <div class="gauge">
+            <span id="confidenceValue">{{ confidence }}</span>
+          </div>
+          <p>Confidence Score</p>
+        </div>
+      </div>
+
+      <!-- Probability Bars -->
+      <div class="section">
+        <div class="probability-card">
+
+    <h2>📊 Probability Analysis</h2>
+
+    <div class="probability-item">
+
+        <div class="probability-title">
+            <span>Spam</span>
+            <span>{{ spam_prob }}%</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar spam-bar"
+                 style="width: {{ spam_prob }}%" ; ></div>
+        </div>
+
+    </div>
+
+    <div class="probability-item">
+
+        <div class="probability-title">
+            <span>Safe</span>
+            <span>{{ safe_prob }}%</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar safe-bar"
+                 style="width: {{ safe_prob }}%" ; ></div>
+        </div>
+
+    </div>
+
+</div>
+      </div>
+
+      <!-- Risk Level -->
+      <div class="section">
+        <h2>⚠️ Risk Assessment</h2>
+
+        <div class="risk-card {{ prediction_class }}">
+          {% if prediction == "Spam" %}
+          <h3>🔴 HIGH RISK</h3>
+          <p>This email contains spam or phishing indicators.</p>
+          {% else %}
+          <h3>🟢 LOW RISK</h3>
+          <p>This email appears legitimate and safe.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Statistics -->
+      <div class="section">
+        <h2>📈 Email Statistics</h2>
+
+        <div class="stats-grid">
+
+    <div class="card">
+        <h3>Characters</h3>
+        <h2>{{ characters }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Words</h3>
+        <h2>{{ words }}</h2>
+    </div>
+
+    <div class="card">
+        <h2>{{ keyword_count }}</h2>
+        <p>Spam Keywords</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ prediction }}</h2>
+        <p>Prediction</p>
+    </div>
+
+</div>
+
+      <!-- Keywords -->
+      <div class="section">
+        <h2>Detected Keywords</h2>
+
+<div class="keywords">
+
+{% if keywords %}
+
+    {% for word in keywords %}
+
+        <span class="keyword">{{ word }}</span>
+
+    {% endfor %}
+
+{% else %}
+
+    <span class="safe-tag">
+        No suspicious keywords found
+    </span>
+
+{% endif %}
+
+</div>
+      </div>
+
+      <!-- Original Email -->
+      <div class="section">
+        <h2>📧 Original Email</h2>
+        <textarea readonly>{{ message }}</textarea>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <a href="/analyze" class="btn">Analyze Another</a>
+        <a href="/" class="btn secondary">Home</a>
+      </div>
+    </div>
+  </body>
+</html>
